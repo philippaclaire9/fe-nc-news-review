@@ -8,12 +8,14 @@ const fetchTopics = () => {
     });
 };
 
-const fetchArticles = ({ topic_slug }, sort_by) => {
+const fetchArticles = ({ topic_slug }, sort_by, order) => {
+  console.log(order);
   return axios
     .get('https://nc-news-review.herokuapp.com/api/articles', {
-      params: { topic: topic_slug, sort_by }
+      params: { topic: topic_slug, sort_by, order }
     })
     .then(({ data }) => {
+      console.log(data.articles);
       return data.articles;
     });
 };

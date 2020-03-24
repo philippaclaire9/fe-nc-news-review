@@ -2,7 +2,15 @@ import React from 'react';
 import { Link } from '@reach/router';
 import Voter from './Voter';
 
-const ArticleCard = ({ title, author, topic, article_id, votes }) => {
+const ArticleCard = ({
+  title,
+  author,
+  topic,
+  article_id,
+  votes,
+  comment_count,
+  created_at
+}) => {
   return (
     <>
       <article>
@@ -10,6 +18,8 @@ const ArticleCard = ({ title, author, topic, article_id, votes }) => {
         <p>Author: {author} </p>
         <p>Topic: {topic} </p>
         <Voter votes={votes} article_id={article_id} />
+        <p>Date created: {created_at} </p>
+        <p>Comment count: {comment_count}</p>
       </article>
       <br />
     </>
