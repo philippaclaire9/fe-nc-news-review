@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as api from '../utils/api';
 import Loader from '../components/Loader';
 import CommentCard from './CommentCard';
+import ViewToggler from './ViewToggler';
+import Voter from './Voter';
 
 class SingleArticle extends Component {
   state = {
@@ -27,7 +29,8 @@ class SingleArticle extends Component {
       votes,
       topic,
       created_at,
-      comment_count
+      comment_count,
+      article_id
     } = this.state.article;
 
     return (
@@ -37,12 +40,13 @@ class SingleArticle extends Component {
         <p> {body} </p>
         <p>Topic: {topic}</p>
         <p> Created at: {created_at} </p>
-        <p> Votes: {votes} </p>
+        <Voter votes={votes} article_id={article_id} />
         <p>Comment count: {comment_count} </p>
-
-        {this.state.comments.map(comment => {
-          return <CommentCard key={comment.comment_id} {...comment} />;
-        })}
+        <ViewToggler>
+          {this.state.comments.map(comment => {
+            return <CommentCard key={comment.comment_id} {...comment} />;
+          })}
+        </ViewToggler>
       </article>
     );
   }

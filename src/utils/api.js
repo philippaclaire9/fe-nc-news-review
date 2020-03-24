@@ -37,9 +37,19 @@ const fetchComments = ({ article_id }) => {
     });
 };
 
+const patchVotes = (inc_votes, article_id) => {
+  return axios.patch(
+    `https://nc-news-review.herokuapp.com/api/articles/${article_id}`,
+    {
+      inc_votes
+    }
+  );
+};
+
 module.exports = {
   fetchTopics,
   fetchArticles,
   fetchSingleArticle,
-  fetchComments
+  fetchComments,
+  patchVotes
 };
