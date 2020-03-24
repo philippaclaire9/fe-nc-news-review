@@ -1,16 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SortBy extends Component {
-  render() {
-    return (
-      <form>
-        <label htmlFor="">
-          Sort by
-          <input type="text" name="sortBy" />
-        </label>
-      </form>
-    );
-  }
-}
+const SortBy = ({ updateSort }) => {
+  const handleChange = event => {
+    const { value } = event.target;
+
+    updateSort(value);
+  };
+
+  return (
+    <label>
+      Sort by:
+      <select name="sortBy" id="sortBy" onChange={handleChange}>
+        <option value="created_at">Date created</option>
+        <option value="comment_count">Comment count</option>
+        <option value="votes">Votes</option>
+      </select>
+    </label>
+  );
+};
 
 export default SortBy;

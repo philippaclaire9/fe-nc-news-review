@@ -19,17 +19,21 @@ class ArticlesList extends Component {
       this.getArticles();
     }
   }
-  getArticles = () => {
-    api.fetchArticles(this.props).then(articles => {
+  getArticles = sort_by => {
+    api.fetchArticles(this.props, sort_by).then(articles => {
       this.setState({ articles, isLoading: false });
     });
+  };
+
+  updateSort = sort_by => {
+    this.getArticles(sort_by);
   };
   render() {
     if (this.state.isLoading) return <Loader />;
     return (
       <main>
         {' '}
-        <SortBy />
+        <SortBy updateSort={this.updateSort} />
         {this.state.articles.map(article => {
           return <ArticleCard key={article.article_id} {...article} />;
         })}
