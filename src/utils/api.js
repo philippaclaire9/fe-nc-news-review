@@ -37,13 +37,23 @@ const fetchComments = ({ article_id }) => {
     });
 };
 
-const patchVotes = (inc_votes, article_id) => {
-  return axios.patch(
-    `https://nc-news-review.herokuapp.com/api/articles/${article_id}`,
-    {
-      inc_votes
-    }
-  );
+const patchVotes = (inc_votes, article_id, comment_id) => {
+  if (article_id) {
+    return axios.patch(
+      `https://nc-news-review.herokuapp.com/api/articles/${article_id}`,
+      {
+        inc_votes
+      }
+    );
+  }
+  if (comment_id) {
+    return axios.patch(
+      `https://nc-news-review.herokuapp.com/api/comments/${comment_id}`,
+      {
+        inc_votes
+      }
+    );
+  }
 };
 
 module.exports = {

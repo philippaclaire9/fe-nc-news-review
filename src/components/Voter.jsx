@@ -7,7 +7,7 @@ class Voter extends Component {
   };
 
   updateVotes = vote => {
-    api.patchVotes(vote, this.props.article_id);
+    api.patchVotes(vote, this.props.article_id, this.props.comment_id);
 
     this.setState(currentState => {
       return { optimisticVotes: currentState.optimisticVotes + vote };

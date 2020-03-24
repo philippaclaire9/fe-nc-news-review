@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../utils/api';
 import Loader from './Loader';
 import ArticleCard from './ArticleCard';
+import SortBy from './SortBy';
 
 class ArticlesList extends Component {
   state = {
@@ -27,6 +28,8 @@ class ArticlesList extends Component {
     if (this.state.isLoading) return <Loader />;
     return (
       <main>
+        {' '}
+        <SortBy />
         {this.state.articles.map(article => {
           return <ArticleCard key={article.article_id} {...article} />;
         })}
