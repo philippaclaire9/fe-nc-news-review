@@ -9,7 +9,6 @@ const fetchTopics = () => {
 };
 
 const fetchArticles = ({ topic_slug }) => {
-  console.log(topic_slug);
   return axios
     .get('https://nc-news-review.herokuapp.com/api/articles', {
       params: { topic: topic_slug }
@@ -19,4 +18,28 @@ const fetchArticles = ({ topic_slug }) => {
     });
 };
 
-module.exports = { fetchTopics, fetchArticles };
+const fetchSingleArticle = ({ article_id }) => {
+  return axios
+
+    .get(`https://nc-news-review.herokuapp.com/api/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.article;
+    });
+};
+
+const fetchComments = ({ article_id }) => {
+  return axios
+    .get(
+      `https://nc-news-review.herokuapp.com/api/articles/${article_id}/comments`
+    )
+    .then(({ data }) => {
+      return data.comments;
+    });
+};
+
+module.exports = {
+  fetchTopics,
+  fetchArticles,
+  fetchSingleArticle,
+  fetchComments
+};
