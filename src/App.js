@@ -5,11 +5,13 @@ import Title from './components/Title';
 import NavBar from './components/NavBar';
 import ArticlesList from './components/ArticlesList';
 import SingleArticle from './components/SingleArticle';
+import UserDetails from './components/UserDetails';
 
 function App() {
   return (
     <div className="App">
       <Title />
+      <UserDetails />
       <NavBar />
       <Router className="main">
         <ArticlesList path="/" />
