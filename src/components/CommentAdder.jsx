@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react';
 import * as api from '../utils/api';
+import ErrorAlert from './ErrorAlert';
 
 class CommentAdder extends PureComponent {
   state = {
     username: '',
-    body: ''
+    body: '',
+    error: false
   };
 
   handleChange = event => {
@@ -17,15 +19,25 @@ class CommentAdder extends PureComponent {
     event.preventDefault();
     const { username, body } = this.state;
 
-    api.postComment(username, body, this.props.article_id).then(comment => {
-      this.props.addComment(comment);
-      this.setState({ username: '', body: '' });
-    });
+    if (username !== 'grumpy19') {
+      this.setState({ error: true });
+    }
+
+    api
+      .postComment(username, body, this.props.article_id)
+      .then(comment => {
+        this.props.addComment(comment);
+        this.setState({ username: '', body: '', error: false });
+      })
+      .catch(err => {
+        this.setState({ error: true });
+      });
   };
 
   render() {
     return (
       <>
+        {this.state.error && <ErrorAlert />}
         <form onSubmit={this.handleSubmit}>
           <h4>Add Comment</h4>
           <label htmlFor="username">Username:</label>

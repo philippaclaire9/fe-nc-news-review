@@ -61,6 +61,7 @@ class SingleArticle extends Component {
         <Voter votes={votes} article_id={article_id} />
         <p>Comment count: {comment_count} </p>
         <CommentAdder addComment={this.addComment} article_id={article_id} />
+
         <ViewToggler>
           {this.state.comments.map(comment => {
             return <CommentCard key={comment.comment_id} {...comment} />;

@@ -67,11 +67,18 @@ const postComment = (username, body, article_id) => {
     });
 };
 
+const deleteComment = comment_id => {
+  return axios.delete(
+    `https://nc-news-review.herokuapp.com/api/comments/${comment_id}`
+  );
+};
+
 module.exports = {
   fetchTopics,
   fetchArticles,
   fetchSingleArticle,
   fetchComments,
   patchVotes,
-  postComment
+  postComment,
+  deleteComment
 };
