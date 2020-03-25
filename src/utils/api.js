@@ -56,10 +56,22 @@ const patchVotes = (inc_votes, article_id, comment_id) => {
   }
 };
 
+const postComment = (username, body, article_id) => {
+  return axios
+    .post(
+      `https://nc-news-review.herokuapp.com/api/articles/${article_id}/comments`,
+      { username, body }
+    )
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
+
 module.exports = {
   fetchTopics,
   fetchArticles,
   fetchSingleArticle,
   fetchComments,
-  patchVotes
+  patchVotes,
+  postComment
 };

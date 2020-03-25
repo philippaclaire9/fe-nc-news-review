@@ -31,10 +31,10 @@ class SingleArticle extends Component {
     });
   }
 
-  componentDidUpdate() {}
-
-  addComment = (username, body) => {
-    api.postComment(username, body).then();
+  addComment = comment => {
+    this.setState(currentState => {
+      return { comments: [comment, ...currentState.comments] };
+    });
   };
 
   render() {
@@ -60,7 +60,7 @@ class SingleArticle extends Component {
         <p> Created at: {created_at} </p>
         <Voter votes={votes} article_id={article_id} />
         <p>Comment count: {comment_count} </p>
-        <CommentAdder />
+        <CommentAdder addComment={this.addComment} article_id={article_id} />
         <ViewToggler>
           {this.state.comments.map(comment => {
             return <CommentCard key={comment.comment_id} {...comment} />;

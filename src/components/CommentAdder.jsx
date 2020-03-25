@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import * as api from '../utils/api';
 
 class CommentAdder extends PureComponent {
   state = {
@@ -12,7 +13,15 @@ class CommentAdder extends PureComponent {
     this.setState({ [id]: value });
   };
 
-  handleSubmit = event => {};
+  handleSubmit = event => {
+    event.preventDefault();
+    const { username, body } = this.state;
+
+    api.postComment(username, body, this.props.article_id).then(comment => {
+      this.props.addComment(comment);
+      this.setState({ username: '', body: '' });
+    });
+  };
 
   render() {
     return (
@@ -25,9 +34,15 @@ class CommentAdder extends PureComponent {
             id="username"
             required
             onChange={this.handleChange}
+            value={this.state.username}
           />
           <label htmlFor="body">Comment:</label>
-          <textarea id="body" required onChange={this.handleChange} />
+          <textarea
+            id="body"
+            required
+            onChange={this.handleChange}
+            value={this.state.body}
+          />
           <button type="submit">Submit</button>
         </form>
         <br />
