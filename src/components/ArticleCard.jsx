@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import Voter from './Voter';
+import StyledArticle from './StyledArticle';
 
 const ArticleCard = ({
   title,
@@ -13,21 +14,18 @@ const ArticleCard = ({
 }) => {
   return (
     <>
-      <article>
+      <StyledArticle>
         <Link to={`/articles/${article_id}`}>{title}</Link>
         <p>Author: {author} </p>
         <p>Topic: {topic} </p>
         <Voter votes={votes} article_id={article_id} />
         <p>Date created: {created_at} </p>
         <p>Comment count: {comment_count}</p>
-      </article>
+      </StyledArticle>
+
       <br />
     </>
   );
 };
 
 export default ArticleCard;
-//thumb up: 128077	1F44D
-//thumb down: 128078	1F44E
-//1F44D
-//

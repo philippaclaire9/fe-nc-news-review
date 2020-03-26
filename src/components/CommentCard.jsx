@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Voter from './Voter';
 import CommentDeleter from './CommentDeleter';
+import StyledComment from './StyledComment';
 
 class CommentCard extends Component {
   state = {
@@ -15,7 +16,7 @@ class CommentCard extends Component {
     const { body, author, votes, comment_id, created_at } = this.props;
     if (this.state.isDeleted) return <p>This comment has been deleted</p>;
     return (
-      <section>
+      <StyledComment>
         <p>{body}</p>
         <p>Author: {author} </p>
         <Voter votes={votes} comment_id={comment_id} />
@@ -26,7 +27,7 @@ class CommentCard extends Component {
             dealWithDelete={this.dealWithDelete}
           />
         )}
-      </section>
+      </StyledComment>
     );
   }
 }

@@ -1,10 +1,10 @@
 import React from 'react';
+import StyledTitle from './StyledTitle';
 
 const Title = () => {
   return (
     <header className="header">
-      {' '}
-      <h1>NC News</h1>
+      <StyledTitle> NC News </StyledTitle>
     </header>
   );
 };
