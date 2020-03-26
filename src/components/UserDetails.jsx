@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class UserDetails extends Component {
-  //does userdetails need state???
-  render() {
-    return (
-      <aside className="user">
-        <span role="img" aria-label="user image">
-          👤
-        </span>
-        <p>User: grumpy19</p>
-      </aside>
-    );
-  }
-}
+const UserDetails = ({ user }) => {
+  return (
+    <aside className="user">
+      <span role="img" aria-label="user image">
+        👤
+      </span>
+      <p>User: {user}</p>
+    </aside>
+  );
+};
 
 export default UserDetails;

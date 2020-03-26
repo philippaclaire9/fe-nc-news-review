@@ -60,11 +60,22 @@ class SingleArticle extends Component {
         <p> Created at: {created_at} </p>
         <Voter votes={votes} article_id={article_id} />
         <p>Comment count: {comment_count} </p>
-        <CommentAdder addComment={this.addComment} article_id={article_id} />
+
+        <CommentAdder
+          addComment={this.addComment}
+          article_id={article_id}
+          user={this.props.user}
+        />
 
         <ViewToggler>
           {this.state.comments.map(comment => {
-            return <CommentCard key={comment.comment_id} {...comment} />;
+            return (
+              <CommentCard
+                key={comment.comment_id}
+                {...comment}
+                user={this.props.user}
+              />
+            );
           })}
         </ViewToggler>
       </article>

@@ -18,9 +18,13 @@ class CommentAdder extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
     const { username, body } = this.state;
+    console.log(username);
+    console.log(this.props.user, '<<<<<user');
 
-    if (username !== 'grumpy19') {
+    if (username !== this.props.user) {
       this.setState({ error: true });
+
+      console.log(this.state.error);
     }
 
     api

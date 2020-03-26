@@ -20,7 +20,7 @@ class CommentCard extends Component {
         <p>Author: {author} </p>
         <Voter votes={votes} comment_id={comment_id} />
         <p>created at: {created_at}</p>
-        {author === 'tickle122' && (
+        {author === this.props.user && (
           <CommentDeleter
             comment_id={comment_id}
             dealWithDelete={this.dealWithDelete}
