@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
 import Loader from '../components/Loader';
-import CommentCard from './CommentCard';
-import ViewToggler from './ViewToggler';
 import Voter from './Voter';
 import ErrorHandler from './ErrorHandler';
-import CommentAdder from './CommentAdder';
+import CommentList from './CommentList';
 
 class SingleArticle extends Component {
   state = {
     article: {},
-    comments: [],
     isLoading: true,
     error: null
   };
@@ -26,16 +23,7 @@ class SingleArticle extends Component {
         const { msg } = err.response.data;
         this.setState({ error: { status, msg }, isLoading: false });
       });
-    api.fetchComments(this.props).then(comments => {
-      this.setState({ comments });
-    });
   }
-
-  addComment = comment => {
-    this.setState(currentState => {
-      return { comments: [comment, ...currentState.comments] };
-    });
-  };
 
   render() {
     if (this.state.isLoading) return <Loader />;
@@ -60,24 +48,7 @@ class SingleArticle extends Component {
         <p> Created at: {created_at} </p>
         <Voter votes={votes} article_id={article_id} />
         <p>Comment count: {comment_count} </p>
-
-        <CommentAdder
-          addComment={this.addComment}
-          article_id={article_id}
-          user={this.props.user}
-        />
-
-        <ViewToggler>
-          {this.state.comments.map(comment => {
-            return (
-              <CommentCard
-                key={comment.comment_id}
-                {...comment}
-                user={this.props.user}
-              />
-            );
-          })}
-        </ViewToggler>
+        <CommentList article_id={article_id} user={this.props.user} />
       </article>
     );
   }
