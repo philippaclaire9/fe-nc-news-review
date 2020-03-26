@@ -18,10 +18,10 @@ class CommentCard extends Component {
     if (this.state.isDeleted) return <p>This comment has been deleted</p>;
     return (
       <StyledComment>
-        <p>{body}</p>
-        <p>Author: {author} </p>
-        <Voter votes={votes} comment_id={comment_id} />
-        <p>Posted on {dateFormatter(created_at)}</p>
+        <p className="body">{body}</p>
+        <p className="author">Author: {author} </p>
+        <Voter votes={votes} comment_id={comment_id} className="votes" />
+        <p className="date">Posted on {dateFormatter(created_at)}</p>
         {author === this.props.user && (
           <CommentDeleter
             comment_id={comment_id}
