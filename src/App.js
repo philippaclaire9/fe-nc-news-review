@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import ArticlesList from './components/ArticlesList';
 import SingleArticle from './components/SingleArticle';
 import UserDetails from './components/UserDetails';
+import ErrorHandler from './components/ErrorHandler';
 
 class App extends Component {
   state = {
@@ -17,10 +18,11 @@ class App extends Component {
         <Title />
         <UserDetails user={this.state.user} />
         <NavBar />
-        <Router className="main">
+        <Router primary={false} className="main">
           <ArticlesList path="/" />
           <ArticlesList path="/topics/:topic_slug" />
           <SingleArticle path="articles/:article_id" user={this.state.user} />
+          <ErrorHandler default status={404} msg={'page not found'} />
         </Router>
       </div>
     );

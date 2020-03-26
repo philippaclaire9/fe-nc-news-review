@@ -3,17 +3,19 @@ import * as api from '../utils/api';
 import CommentAdder from './CommentAdder';
 import ViewToggler from './ViewToggler';
 import CommentCard from './CommentCard';
+import Loader from './Loader';
 
 class CommentList extends Component {
   state = {
     comments: [],
+    isLoading: true,
     error: null
   };
   componentDidMount() {
     api
       .fetchComments(this.props)
       .then(comments => {
-        this.setState({ comments });
+        this.setState({ comments, isLoading: false });
       })
       .catch(err => {
         this.setState({ error: true });
@@ -26,6 +28,7 @@ class CommentList extends Component {
   };
 
   render() {
+    if (this.state.isLoading) return <Loader />;
     if (this.state.error) return <p>Sorry, comments not available</p>;
     return (
       <section>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Voter from './Voter';
 import CommentDeleter from './CommentDeleter';
 import StyledComment from './StyledComment';
+import dateFormatter from '../utils/dateFormatter';
 
 class CommentCard extends Component {
   state = {
@@ -20,7 +21,7 @@ class CommentCard extends Component {
         <p>{body}</p>
         <p>Author: {author} </p>
         <Voter votes={votes} comment_id={comment_id} />
-        <p>created at: {created_at}</p>
+        <p>Posted on {dateFormatter(created_at)}</p>
         {author === this.props.user && (
           <CommentDeleter
             comment_id={comment_id}
