@@ -5,6 +5,7 @@
   grid-template-columns: 100px auto;
   grid-template-rows: 100px auto;
   background-color: gainsboro;
+  font-family: 'Gotu', sans-serif;
 }
 
 .header {
@@ -22,6 +23,7 @@
 }
 
 .main {
+  background-color: gainsboro;
   grid-area: main;
 }
 

@@ -3,7 +3,7 @@ const StyledComment = styled.section`
   padding: 0px 1px 5px 1px;
   max-width: 400px;
   border: 2px solid aliceblue;
-  margin: 10px;
+  margin: 0 auto;
   background-color: aliceblue;
   box-shadow: 2px 2px 2px gray;
 `;

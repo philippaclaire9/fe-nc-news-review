@@ -1,0 +1,34 @@
+.articleCard {
+  padding: 5px 1px;
+  background-color: aliceblue;
+  max-width: 600px;
+  box-shadow: 2px 2px 2px gray;
+  display: grid;
+  grid-template-areas: 'title title title' '. author date' 'votes topic comments';
+  grid-template-columns: 80px auto;
+  grid-template-rows: 20px auto;
+}
+
+.title {
+  grid-area: title;
+}
+
+.votes {
+  grid-area: votes;
+}
+
+.author {
+  grid-area: author;
+}
+
+.topic {
+  grid-area: topic;
+}
+
+.date {
+  grid-area: date;
+}
+
+.comments {
+  grid-area: comments;
+}

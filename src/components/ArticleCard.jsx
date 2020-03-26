@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import Voter from './Voter';
-import StyledArticle from './StyledArticle';
+
 import dateFormatter from '../utils/dateFormatter';
+import '../article.css';
 
 const ArticleCard = ({
   title,
@@ -15,14 +16,16 @@ const ArticleCard = ({
 }) => {
   return (
     <>
-      <StyledArticle>
-        <Link to={`/articles/${article_id}`}>{title}</Link>
-        <p>Author: {author} </p>
-        <p>Topic: {topic} </p>
-        <Voter votes={votes} article_id={article_id} />
-        <p>Posted on {dateFormatter(created_at)} </p>
-        <p>Comment count: {comment_count}</p>
-      </StyledArticle>
+      <article className="articleCard">
+        <Link to={`/articles/${article_id}`} className="title">
+          {title}
+        </Link>
+        <p className="author">Author: {author} </p>
+        <p className="topic">Topic: {topic} </p>
+        <Voter votes={votes} article_id={article_id} className="votes" />
+        <p className="date">Posted on {dateFormatter(created_at)} </p>
+        <p className="comments">Comment count: {comment_count}</p>
+      </article>
 
       <br />
     </>
