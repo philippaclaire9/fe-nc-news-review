@@ -5,9 +5,9 @@
   box-shadow: 2px 2px 2px gray;
   display: grid;
   margin: 0 auto;
-  grid-template-areas: 'title title title' '. author date' 'votes topic comments';
+  grid-template-areas: '. title title' '. author date' 'votes topic comments';
   grid-template-columns: 80px auto;
-  grid-template-rows: 20px auto;
+  grid-template-rows: 40px auto;
 }
 
 .title {
