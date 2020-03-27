@@ -1,10 +1,10 @@
 import React from 'react';
 
-const OrderBy = ({ updateOrder }) => {
+const OrderBy = ({ updateQuery }) => {
   const handleChange = event => {
     const { value } = event.target;
 
-    updateOrder(value);
+    updateQuery({ order: value });
   };
   return (
     <form>

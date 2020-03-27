@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SortBy = ({ updateSort }) => {
+const SortBy = ({ updateQuery }) => {
   const handleChange = event => {
     const { value } = event.target;
 
-    updateSort(value);
+    updateQuery({ sort_by: value });
   };
 
   return (

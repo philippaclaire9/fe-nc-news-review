@@ -44,12 +44,8 @@ class ArticlesList extends Component {
       });
   };
 
-  updateSort = sort_by => {
-    this.setState({ sort_by });
-  };
-
-  updateOrder = order => {
-    this.setState({ order });
+  updateQuery = ({ sort_by, order }) => {
+    this.setState({ sort_by, order });
   };
 
   render() {
@@ -57,8 +53,8 @@ class ArticlesList extends Component {
     if (this.state.error) return <ErrorHandler {...this.state.error} />;
     return (
       <main>
-        <SortBy updateSort={this.updateSort} />
-        <OrderBy updateOrder={this.updateOrder} />
+        <SortBy updateQuery={this.updateQuery} />
+        <OrderBy updateQuery={this.updateQuery} />
         {this.state.articles.map(article => {
           return <ArticleCard key={article.article_id} {...article} />;
         })}
