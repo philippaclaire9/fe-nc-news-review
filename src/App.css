@@ -20,6 +20,9 @@
   grid-area: nav;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
 }
 
 .main {
@@ -29,4 +32,13 @@
 
 textarea {
   resize: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .user {
+    width: 100%;
+  }
+  .header {
+    width: 100%;
+  }
 }

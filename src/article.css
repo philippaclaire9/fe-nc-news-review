@@ -7,11 +7,14 @@
   margin: 0 auto;
   grid-template-areas: '. title title' '. author date' 'votes topic comments';
   grid-template-columns: 80px auto;
-  grid-template-rows: 40px auto;
+  grid-template-rows: 60px auto;
 }
 
 .title {
   grid-area: title;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
 }
 
 .votes {
@@ -32,4 +35,10 @@
 
 .comments {
   grid-area: comments;
+}
+
+@media only screen and (max-width: 600px) {
+  .articleCard {
+    width: 100%;
+  }
 }
