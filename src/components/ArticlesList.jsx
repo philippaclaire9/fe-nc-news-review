@@ -44,8 +44,8 @@ class ArticlesList extends Component {
       });
   };
 
-  updateQuery = ({ sort_by, order }) => {
-    this.setState({ sort_by, order });
+  updateQuery = (type, value) => {
+    this.setState({ [type]: value });
   };
 
   render() {

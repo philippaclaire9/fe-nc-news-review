@@ -4,7 +4,7 @@ const SortBy = ({ updateQuery }) => {
   const handleChange = event => {
     const { value } = event.target;
 
-    updateQuery({ sort_by: value });
+    updateQuery('sort_by', value);
   };
 
   return (

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import Voter from './Voter';
-
 import dateFormatter from '../utils/dateFormatter';
 import '../article.css';
 
@@ -22,7 +21,7 @@ const ArticleCard = ({
         </Link>
         <p className="author">Author: {author} </p>
         <p className="topic">Topic: {topic} </p>
-        <Voter votes={votes} article_id={article_id} className="votes" />
+        <Voter votes={votes} article_id={article_id} />
         <p className="date">Posted on {dateFormatter(created_at)} </p>
         <p className="comments">Comment count: {comment_count}</p>
       </article>

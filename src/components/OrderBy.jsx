@@ -4,7 +4,7 @@ const OrderBy = ({ updateQuery }) => {
   const handleChange = event => {
     const { value } = event.target;
 
-    updateQuery({ order: value });
+    updateQuery('order', value);
   };
   return (
     <form>

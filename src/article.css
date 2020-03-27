@@ -37,8 +37,31 @@
   grid-area: comments;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .articleCard {
-    width: 100%;
+    max-width: 300px;
+    box-shadow: 1px 1px 1px gray;
+
+    grid-template-columns: 40px auto;
+    grid-template-rows: 30px auto;
+  }
+  .title {
+    font-size: 12px;
+  }
+
+  .author {
+    font-size: 12px;
+  }
+  .topic {
+    font-size: 12px;
+  }
+  .date {
+    font-size: 12px;
+  }
+  .comments {
+    font-size: 12px;
+  }
+  .votes {
+    font-size: 12px;
   }
 }

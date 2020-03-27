@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
+import '../article.css';
 
 class Voter extends Component {
   state = {
@@ -28,7 +29,7 @@ class Voter extends Component {
             👍
           </span>
         </button>{' '}
-        Votes: {this.props.votes + optimisticVotes}
+        <p className="votes">Votes: {this.props.votes + optimisticVotes} </p>
         <button
           disabled={optimisticVotes < 0}
           onClick={event => {
