@@ -24,6 +24,7 @@ class CommentCard extends Component {
         <p className="date">Posted on {dateFormatter(created_at)}</p>
         {author === this.props.user && (
           <CommentDeleter
+            className="button"
             comment_id={comment_id}
             dealWithDelete={this.dealWithDelete}
           />

@@ -7,9 +7,10 @@ class CommentDeleter extends Component {
   };
 
   handleClick = event => {
-    api.deleteComment(this.props.comment_id);
     this.setState({ isDeleting: true });
-    this.props.dealWithDelete();
+    api.deleteComment(this.props.comment_id).then(data => {
+      this.props.dealWithDelete();
+    });
   };
   render() {
     if (this.state.isDeleting) return <p>Deleting comment...</p>;

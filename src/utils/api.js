@@ -68,9 +68,11 @@ const postComment = (username, body, article_id) => {
 };
 
 const deleteComment = comment_id => {
-  return axios.delete(
-    `https://nc-news-review.herokuapp.com/api/comments/${comment_id}`
-  );
+  return axios
+    .delete(`https://nc-news-review.herokuapp.com/api/comments/${comment_id}`)
+    .then(({ data }) => {
+      return data;
+    });
 };
 
 module.exports = {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import * as api from '../utils/api';
+import StyledNav from './StyledNav';
 
 class NavBar extends Component {
   state = {
@@ -14,7 +15,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <nav className="nav">
+      <StyledNav className="nav">
         {' '}
         <Link to="/">home</Link>
         {this.state.topics.map(topic => {
@@ -24,7 +25,7 @@ class NavBar extends Component {
             </Link>
           );
         })}{' '}
-      </nav>
+      </StyledNav>
     );
   }
 }

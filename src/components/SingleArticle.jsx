@@ -5,6 +5,7 @@ import Voter from './Voter';
 import ErrorHandler from './ErrorHandler';
 import CommentList from './CommentList';
 import dateFormatter from '../utils/dateFormatter';
+import StyledSingleArticle from './StyledSingleArticle';
 
 class SingleArticle extends Component {
   state = {
@@ -39,18 +40,20 @@ class SingleArticle extends Component {
       comment_count,
       article_id
     } = this.state.article;
-    console.log(typeof created_at);
+
     return (
-      <article>
-        <h3>{title}</h3>
-        <h4>Author: {author}</h4>
-        <p> {body} </p>
-        <p>Topic: {topic}</p>
-        <p> Posted on {dateFormatter(created_at)} </p>
-        <Voter votes={votes} article_id={article_id} />
-        <p>Comment count: {comment_count} </p>
+      <>
+        <StyledSingleArticle>
+          <h3>{title}</h3>
+          <h4>Author: {author}</h4>
+          <p> {body} </p>
+          <p>Topic: {topic}</p>
+          <p> Posted on {dateFormatter(created_at)} </p>
+          <Voter votes={votes} article_id={article_id} />
+          <p>Comment count: {comment_count} </p>
+        </StyledSingleArticle>
         <CommentList article_id={article_id} user={this.props.user} />
-      </article>
+      </>
     );
   }
 }
