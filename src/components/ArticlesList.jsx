@@ -10,7 +10,7 @@ class ArticlesList extends Component {
   state = {
     articles: [],
     isLoading: true,
-    sort_by: '',
+    sort_by: 'created_at',
     order: '',
     error: null
   };
