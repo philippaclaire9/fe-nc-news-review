@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StyledButton from './StyledButton';
 
 class ViewToggler extends Component {
   state = {
@@ -13,9 +14,10 @@ class ViewToggler extends Component {
   render() {
     return (
       <>
-        <button onClick={this.handleClick}>
+        <StyledButton onClick={this.handleClick}>
+          {' '}
           {this.state.isVisible ? 'Hide comments' : 'Show comments'}
-        </button>
+        </StyledButton>
         {this.state.isVisible && this.props.children}
       </>
     );

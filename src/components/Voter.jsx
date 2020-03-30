@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
 import '../article.css';
+import StyledVoteButton from './StyledVoteButton';
 
 class Voter extends Component {
   state = {
@@ -19,7 +20,7 @@ class Voter extends Component {
     const { optimisticVotes } = this.state;
     return (
       <div>
-        <button
+        <StyledVoteButton
           disabled={optimisticVotes > 0}
           onClick={event => {
             this.updateVotes(1);
@@ -28,9 +29,10 @@ class Voter extends Component {
           <span role="img" aria-label="thumbs up">
             👍
           </span>
-        </button>{' '}
+        </StyledVoteButton>
+
         <p className="votes">Votes: {this.props.votes + optimisticVotes} </p>
-        <button
+        <StyledVoteButton
           disabled={optimisticVotes < 0}
           onClick={event => {
             this.updateVotes(-1);
@@ -39,7 +41,7 @@ class Voter extends Component {
           <span role="img" aria-label="thumbs down">
             👎
           </span>
-        </button>
+        </StyledVoteButton>
       </div>
     );
   }

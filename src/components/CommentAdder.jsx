@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import * as api from '../utils/api';
 
 import ErrorHandler from './ErrorHandler';
+import StyledButton from './StyledButton';
 
 class CommentAdder extends PureComponent {
   state = {
@@ -50,11 +51,12 @@ class CommentAdder extends PureComponent {
             required
             onChange={this.handleChange}
             value={this.state.body}
-            rows="5"
-            cols="20"
+            rows="10"
+            cols="25"
             placeholder="Write your comment here..."
           />
-          <button type="submit">Submit</button>
+          <br />
+          <StyledButton type="submit">Submit </StyledButton>
         </form>
         <br />
       </>

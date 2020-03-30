@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api';
+import StyledButton from './StyledButton';
 
 class CommentDeleter extends Component {
   state = {
@@ -14,7 +15,9 @@ class CommentDeleter extends Component {
   };
   render() {
     if (this.state.isDeleting) return <p>Deleting comment...</p>;
-    return <button onClick={this.handleClick}>Delete comment</button>;
+    return (
+      <StyledButton onClick={this.handleClick}>Delete comment </StyledButton>
+    );
   }
 }
 

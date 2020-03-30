@@ -2,18 +2,28 @@ import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import * as api from '../utils/api';
 import '../App.css';
+import ErrorHandler from './ErrorHandler';
 
 class NavBar extends Component {
   state = {
-    topics: []
+    topics: [],
+    error: null
   };
   componentDidMount() {
-    api.fetchTopics().then(topics => {
-      this.setState({ topics });
-    });
+    api
+      .fetchTopics()
+      .then(topics => {
+        this.setState({ topics });
+      })
+      .catch(err => {
+        const { status } = err.response;
+        const { msg } = err.response.data;
+        this.setState({ error: { status, msg }, isLoading: false });
+      });
   }
 
   render() {
+    if (this.state.error) return <ErrorHandler {...this.state.error} />;
     return (
       <nav className="nav">
         <Link to="/" className="topic">
